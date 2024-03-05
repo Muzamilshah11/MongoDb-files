@@ -1,0 +1,52 @@
+
+MongoDB's find query operator utilizes a powerful expression language for filtering documents based on various criteria, including logical and comparison operators. Here's how these operators translate within the mongosh shell for querying documents:
+
+Logical Operators:
+
+$and (AND): This operator requires all specified conditions to be true for a document to match the query.
+JavaScript
+db.myCollection.find({
+  age: { $gt: 18 }, // Age greater than 18
+  isCitizen: true,   // isCitizen must be true
+})
+Use code with caution.
+$or (OR): This operator allows documents to match if at least one of the specified conditions is true.
+JavaScript
+db.myCollection.find({
+  $or: [
+    { salary: { $gt: 50000 } },  // Salary greater than 50000
+    { experience: { $gt: 5 } },   // OR experience greater than 5 years
+  ]
+})
+Use code with caution.
+$not (NOT): This operator inverts the result of a single condition.
+JavaScript
+db.myCollection.find({
+  isActive: { $not: true }  // Find documents where isActive is false
+})
+Use code with caution.
+Comparison Operators:
+
+Equality:
+fieldName: "value" - Matches documents where the field exactly equals the provided value.
+fieldName: { $eq: "value" } - Explicitly uses the equality operator.
+Inequality:
+fieldName: { $gt: value } - Greater than
+fieldName: { $gte: value } - Greater than or equal to
+fieldName: { $lt: value } - Less than
+fieldName: { $lte: value } - Less than or equal to
+fieldName: { $ne: value } - Not equal to
+Existence:
+fieldName: { $exists: true } - Field exists in the document (regardless of value)
+fieldName: { $exists: false } - Field does not exist in the document
+Example:
+
+JavaScript
+db.myCollection.find({
+  age: { $gt: 18 },   // Age greater than 18
+  isActive: true,     // isActive must be true
+  $or: [
+    { city: "New York" },  // City is New York OR
+    { country: "USA" },    // Country is USA
+  ]
+})

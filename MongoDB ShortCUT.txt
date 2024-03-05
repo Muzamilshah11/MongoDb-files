@@ -1,0 +1,32 @@
+Database and Collection Management:
+
+show dbs: List all databases.
+use dbName: Switch to the specified database.
+show collections: List all collections in the current database.
+Document Management:
+
+db.collectionName.insertOne({ ... }): Insert a single document.
+
+db.collectionName.insertMany([ ... ]): Insert multiple documents.
+
+db.collectionName.find({}): Find all documents in the collection.
+
+db.collectionName.findOne({ ... }): Find the first document matching a query.
+
+db.collectionName.find({ ... }).limit(n): Limit the number of returned documents.
+
+db.collectionName.find({ ... }).sort({ ... }): Sort documents based on specified fields.
+
+db.collectionName.updateOne({ ... }, { ... }): Update a single document.
+
+db.collectionName.updateMany({ ... }, { ... }): Update multiple documents.
+
+
+db.collectionName.deleteOne({ ... }): Delete a single document.
+
+db.collectionName.deleteMany({ ... }): Delete multiple documents.
+
+Other:
+
+exit: Exit the mongosh shell.
+help: Get help on available commands and syntax.
